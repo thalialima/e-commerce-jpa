@@ -1,13 +1,19 @@
 package br.com.alura.loja.modelo;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 //usa-se a importação da especificação, para não ficar preso às implementações
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 //---------Mapeamento de Entidade---------------------
 
@@ -31,8 +37,21 @@ public class Produto {
 	private String nome;
 	private String descicao;
 	private BigDecimal preco;
+	// preenche o atributo com a data atual
+	private LocalDate dataCadastro = LocalDate.now();
+	
+	//Indica a cardinalidade da relação
+	@ManyToOne
+	private Categoria categoria;
+	
+	public Produto(String nome, String descicao, BigDecimal preco, Categoria categoria) {
+		this.nome = nome;
+		this.descicao = descicao;
+		this.preco = preco;
+		this.categoria = categoria;
+	}
 
-	//getters and setters
+	// getters and setters
 	public Long getId() {
 		return id;
 	}
@@ -63,6 +82,22 @@ public class Produto {
 
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
+	}
+
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 }
