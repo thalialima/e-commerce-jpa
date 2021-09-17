@@ -44,6 +44,10 @@ public class Produto {
 	@ManyToOne
 	private Categoria categoria;
 	
+	public Produto() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Produto(String nome, String descicao, BigDecimal preco, Categoria categoria) {
 		this.nome = nome;
 		this.descicao = descicao;
