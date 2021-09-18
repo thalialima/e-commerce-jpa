@@ -18,6 +18,8 @@
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 			<!-- propriedade que imprime os dados no console -->
 			<property name="hibernate.show_sql" value="true"/>
+			<!-- indenta o código sql quando for imprimir -->
+			<property name="hibernate.format_sql" value="true"/>
 			<!-- gera os comandos sql para criar o BD automaticamente-->
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
