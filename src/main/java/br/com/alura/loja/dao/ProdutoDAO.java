@@ -18,7 +18,7 @@ public class ProdutoDAO {
 	}
 	
 	public void cadastrar(Produto poduto) {
-		//cadastrando pruduto no banco de dados usando a JPA
+		//cadastrando produto no banco de dados usando a JPA
 		this.em.persist(poduto);
 	}
 	
