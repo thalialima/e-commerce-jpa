@@ -7,6 +7,9 @@ import javax.persistence.EntityManager;
 
 import br.com.alura.loja.modelo.Produto;
 
+//DAO é o padrão de projetos para persistência de dados
+//para cada classe de modelo existe uma classe DAO
+//que é reponsável por conter os métodos de acesso ao BD como caomandos SQL e JPQL
 public class ProdutoDAO {
 	private EntityManager em;
 

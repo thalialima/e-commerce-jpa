@@ -4,6 +4,9 @@ import javax.persistence.EntityManager;
 
 import br.com.alura.loja.modelo.Categoria;
 
+//DAO é o padrão de projetos para persistência de dados
+//para cada classe de modelo existe uma classe DAO
+//que é reponsável por conter os métodos de acesso ao BD
 public class CategoriaDAO {
 	private EntityManager em;
 
@@ -12,7 +15,7 @@ public class CategoriaDAO {
 	}
 	
 	public void cadastrar(Categoria categoria) {
-		//cadastrando pruduto no banco de dados usando a JPA
+		//cadastrando produto no banco de dados usando a JPA
 		this.em.persist(categoria);
 	}
 	

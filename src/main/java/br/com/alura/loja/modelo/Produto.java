@@ -24,7 +24,7 @@ import org.hibernate.annotations.ManyToAny;
 @Table(name = "produtos")
 public class Produto {
 
-	// os nomes dos atributos precisão ser iguais aos atributos da tabela do BD
+	// os nomes dos atributos precisam ser iguais aos atributos da tabela do BD
 	// assim, os nomes são associados automaticamente
 	// Caso contrário, será necessário utilizar a anotação
 	// @Column(name="nomeDaTable")
