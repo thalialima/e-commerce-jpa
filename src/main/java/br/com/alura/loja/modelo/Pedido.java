@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +27,8 @@ public class Pedido {
 	@Column(name = "valor_total")
 	private BigDecimal valorTotal = BigDecimal.ZERO;
 	private LocalDate data = LocalDate.now();
-
-	@ManyToOne
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Cliente cliente;
 	
 	// no lado 1 p/ muitos é necessário especificar que é um relacionamento já mapeado

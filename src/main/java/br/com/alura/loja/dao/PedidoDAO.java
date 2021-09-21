@@ -57,5 +57,13 @@ public class PedidoDAO {
 				+ "GROUP BY produto.nome " + "ORDER BY item.quantidade DESC ";
 		return em.createQuery(jpql, RelatorioDeVendasVo.class).getResultList();
 	}
-
+	
+	//JOIN FETCH faz com que nessa consulta o carregamento seja EAGER
+	public Pedido buscarPedidoComCliente(long id) {
+		return em.createQuery("SELECT p FROM Pedido p JOIN FETCH p.cliente WHERE p.id = :id", Pedido.class)
+				.setParameter("id", id)
+				.getSingleResult();
+	}
+	
+	
 }
