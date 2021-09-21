@@ -79,4 +79,9 @@ public class ItemPedido {
 		this.produto = produto;
 	}
 
+	public BigDecimal getValor() {
+		// TODO Auto-generated method stub
+		return precoUnitario.multiply(new BigDecimal(quantidade));
+	}
+
 }

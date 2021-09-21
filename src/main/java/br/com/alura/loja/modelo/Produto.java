@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 //---------Mapeamento de Entidade---------------------
@@ -18,6 +19,11 @@ import javax.persistence.Table;
 
 //indica o nome da tabela no BD
 @Table(name = "produtos")
+
+//dá um nome para a query
+//coloca a definição da consulta na entidade
+@NamedQuery(name = "Produto.produtosPorCategoria", 
+query = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome")
 public class Produto {
 
 	// os nomes dos atributos precisam ser iguais aos atributos da tabela do BD
