@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -24,7 +26,12 @@ import javax.persistence.Table;
 //dá um nome para a query
 //coloca a definição da consulta na entidade
 @NamedQuery(name = "Produto.produtosPorCategoria", 
-query = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome")
+query = "SELECT p FROM Produto p WHERE p.categoria.id.nome = :nome")
+
+//indica que a classe é usada como herança
+//SINGLE_TABLE faz com que os atributos da agregação sejam armazenados em uma única tabela
+//JOINED faz com que os atributos da agregação sejam guardados em tabelas diferentes
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Produto {
 
 	// os nomes dos atributos precisam ser iguais aos atributos da tabela do BD

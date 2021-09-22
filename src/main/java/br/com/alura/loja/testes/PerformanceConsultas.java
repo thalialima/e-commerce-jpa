@@ -2,8 +2,6 @@ package br.com.alura.loja.testes;
 
 import java.math.BigDecimal;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 
 import br.com.alura.loja.dao.CategoriaDAO;
@@ -16,7 +14,6 @@ import br.com.alura.loja.modelo.ItemPedido;
 import br.com.alura.loja.modelo.Pedido;
 import br.com.alura.loja.modelo.Produto;
 import br.com.alura.loja.util.JPAUtil;
-import br.com.alura.loja.vo.RelatorioDeVendasVo;
 
 public class PerformanceConsultas {
 
@@ -29,7 +26,7 @@ public class PerformanceConsultas {
 		
 		Pedido pedido = pedidoDAO.buscarPedidoComCliente(1l);
 		em.close();
-		System.out.println(pedido.getCliente().getNome());
+		System.out.println(pedido.getCliente().getDadosPessoais().getNome());
 	}
 
 	private static void popularBancoDeDados() {

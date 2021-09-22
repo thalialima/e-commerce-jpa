@@ -1,9 +1,7 @@
 package br.com.alura.loja.modelo;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 //anotação da JPA que indica q essa classe está sendo mapeada para uma tabela no BD
@@ -14,26 +12,32 @@ import javax.persistence.Table;
 public class Categoria {
 
 	// indica o id para a JPA
-	@Id
+	//@Id
 	// Indica que o atributo é gerado automaticamente pelo BD
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nome;
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@EmbeddedId
+	private CategoriaId id;
 	
 	public Categoria() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Categoria(String nome) {
-		this.nome = nome;
+		this.id = new CategoriaId(nome, "xpto");
+	}
+
+	public CategoriaId getId() {
+		return id;
+	}
+
+	public void setId(CategoriaId id) {
+		this.id = id;
 	}
 	
 	public String getNome() {
-		return nome;
+		return this.id.getNome();
 	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+
 
 }
